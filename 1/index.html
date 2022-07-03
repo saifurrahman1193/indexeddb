@@ -8,8 +8,14 @@
 </head>
 <body>
     
+    
     <script>
-        const request = indexedDB.open("notes")
+        const creatDB = () => {
+            const request = indexedDB.open("notes")
+            request.onupgradeneeded = (e) => { alert('Upgrade called') }
+            request.onsuccess = (e) => {alert('Success called')}
+            request.onerror = (e) => {alert('Error called')}
+        }
     </script>
 </body>
 </html>
